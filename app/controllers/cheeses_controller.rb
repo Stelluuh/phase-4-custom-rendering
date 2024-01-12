@@ -4,7 +4,8 @@ class CheesesController < ApplicationController
   def index
     cheeses = Cheese.all
     # render json: cheeses, only: [:name]
-    render json: cheeses, except: [:created_at, :name]
+    # render json: cheeses, except: [:created_at, :name]
+    render json: cheeses, except: [:created_at, :updated_at], methods: [:summary] #summary is in the cheese.rb in the models folder
   end
 
   # GET /cheeses/:id
